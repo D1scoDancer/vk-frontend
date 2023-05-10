@@ -4,8 +4,9 @@ import { Table } from "react-bootstrap"
 import Task from "../Task/Task"
 import axios from "axios"
 
-const TaskTable = () => {
+const TaskTable = ({ currentUser }) => {
     const [tasks, setTasks] = useState([])
+    const [passedTasks, setPassedTasks] = useState([])
 
     const getAllTasks = async () => {
         const apiUrl = "http://localhost:8080/tasks"
@@ -39,9 +40,8 @@ const TaskTable = () => {
                     {tasks.map((task, index) => (
                         <Task
                             key={index}
-                            type={task.type}
-                            name={task.name}
-                            short_description={task.short_description}
+                            task={task}
+                            currentUser={currentUser}
                         />
                     ))}
                 </tbody>

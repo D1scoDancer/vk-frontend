@@ -7,9 +7,9 @@ import TaskTable from "./components/TaskTable/TaskTable"
 
 function App() {
     const [currentUser, setCurrentUser] = useState({
-        id: -1,
-        firstName: "Unknown",
-        lastName: "Unknown",
+        id: 1,
+        firstName: "Aleksey",
+        lastName: "Shulikov",
     })
 
     return (
@@ -25,11 +25,11 @@ function App() {
                     <Account currentUser={currentUser} />
                 </div>
                 <div>
-                    <Stats />
+                    <Stats currentUser={currentUser} />
                 </div>
             </div>
             <div className="tasktable">
-                <TaskTable />
+                <TaskTable currentUser={currentUser} />
             </div>
         </div>
     )
