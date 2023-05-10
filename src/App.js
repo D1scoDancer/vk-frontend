@@ -29,7 +29,10 @@ function App() {
                 </div>
             </div>
             <div className="tasktable">
-                <TaskTable currentUser={currentUser} />
+                <TaskTable
+                    currentUser={currentUser}
+                    setCurrentUser={setCurrentUser}
+                />
             </div>
         </div>
     )

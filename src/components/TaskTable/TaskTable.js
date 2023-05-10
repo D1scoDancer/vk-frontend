@@ -4,20 +4,17 @@ import { Table } from "react-bootstrap"
 import Task from "../Task/Task"
 import axios from "axios"
 
-const TaskTable = ({ currentUser }) => {
+const TaskTable = ({ currentUser, setCurrentUser }) => {
     const [tasks, setTasks] = useState([])
-    const [passedTasks, setPassedTasks] = useState([])
 
     const getAllTasks = async () => {
         const apiUrl = "http://localhost:8080/tasks"
 
         try {
             const response = await axios.get(apiUrl)
-            console.log("Response:", response.data)
             setTasks(response.data)
         } catch (error) {
             console.error("Error:", error.message)
-            throw error
         }
     }
 
@@ -42,6 +39,7 @@ const TaskTable = ({ currentUser }) => {
                             key={index}
                             task={task}
                             currentUser={currentUser}
+                            setCurrentUser={setCurrentUser}
                         />
                     ))}
                 </tbody>

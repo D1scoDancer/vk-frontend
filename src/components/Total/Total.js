@@ -14,7 +14,6 @@ const Total = ({ currentUser }) => {
             setTotal(response.data.length)
         } catch (error) {
             console.error("Error:", error.message)
-            throw error
         }
     }
 

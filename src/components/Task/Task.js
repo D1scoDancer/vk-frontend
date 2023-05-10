@@ -3,26 +3,37 @@ import "./Task.css"
 import { Button } from "react-bootstrap"
 import axios from "axios"
 
-const Task = ({ task, currentUser, alreadyPassed }) => {
-    const [passed, setPassed] = useState(alreadyPassed)
+const Task = ({ task, currentUser }) => {
+    const [passed, setPassed] = useState(false)
+
+    const requestExists = async () => {
+        const apiUrl = `http://localhost:8080/passed-tasks/exists?userId=${currentUser.id}&taskId=${task.id}`
+
+        try {
+            const response = await axios.get(apiUrl)
+            setPassed(response.data)
+        } catch (error) {
+            console.error("Error:", error.message)
+        }
+    }
 
     const handleSubmit = async () => {
         const apiUrl = "http://localhost:8080/passed-tasks"
-
         const data = {
             user: currentUser,
             task: task,
         }
-
         try {
             const response = await axios.post(apiUrl, data)
-            console.log("Response:", response.data)
             setPassed(true)
         } catch (error) {
             console.error("Error:", error.message)
-            throw error
         }
     }
+
+    useEffect(() => {
+        requestExists()
+    }, [currentUser])
 
     return (
         <tr>
