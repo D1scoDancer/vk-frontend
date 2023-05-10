@@ -2,7 +2,7 @@ import React from "react"
 import "./Account.css"
 import { Image } from "react-bootstrap"
 
-const Account = () => {
+const Account = ({ currentUser }) => {
     return (
         <div className="acc">
             <Image
@@ -10,7 +10,9 @@ const Account = () => {
                 rounded
                 style={{ width: "100px", height: "100px" }}
             />
-            <div className="username">user_1</div>
+            <div className="username">
+                {currentUser.lastName} {currentUser.firstName}
+            </div>
         </div>
     )
 }

@@ -9,5 +9,6 @@
 }
 
 .types {
-    min-width: 500px;
+    min-width: 400px;
+    margin-right: 10px;
 }

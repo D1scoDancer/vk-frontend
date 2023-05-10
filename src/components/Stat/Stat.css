@@ -1,0 +1,17 @@
+.stat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.stype {
+    margin-right: 5px;
+}
+
+.sdiv {
+    margin-right: 5px;
+}
+
+.sbetter {
+    margin-right: 5px;
+}
