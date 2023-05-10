@@ -1,0 +1,9 @@
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.current_user {
+    margin-right: 10px;
+}
